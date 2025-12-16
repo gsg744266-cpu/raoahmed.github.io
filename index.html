@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Ali | Portfolio</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f5f5f3;
+  --dark:#000;
+  --white:#fff;
+  --muted:rgba(255,255,255,.75);
+  --ink:#121212;
+  --radius:26px;
+  --radius2:16px;
+  --line:rgba(0,0,0,.12);
+  --shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:#121212;
+}
+
+/* ================= NAV ================= */
+.wrap{max-width:1180px;margin:auto;padding:24px 18px 90px}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:linear-gradient(to bottom,#f5f5f3ee,#f5f5f300);
+  backdrop-filter:blur(6px);
+  padding:12px 0 18px;
+}
+.brand{font-weight:600;text-decoration:none;color:#121212}
+.nav a{
+  text-decoration:none;
+  color:#444;
+  margin-left:16px;
+  font-size:14px;
+}
+.nav a.cta{
+  background:#121212;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:999px;
+}
+
+/* ================= HERO ================= */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:40px;
+  padding:80px 0 60px;
+}
+.hero-dark{
+  background:radial-gradient(circle at 70% 40%,rgba(255,255,255,.05),#000 60%);
+  border-radius:var(--radius);
+  padding:50px;
+  box-shadow:var(--shadow);
+}
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(46px,5.5vw,82px);
+  line-height:.95;
+  letter-spacing:-.02em;
+  color:#fff;
+  margin-bottom:20px;
+  text-transform:uppercase;
+}
+.hero p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.9;
+  max-width:520px;
+}
+.hero-tags{
+  margin-top:22px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.hero-tags span{
+  border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.85);
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:13px;
+}
+
+/* IMAGE */
+.hero-image{
+  height:520px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#000;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);
+  position:relative;
+}
+.hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:contrast(1.05) brightness(.95);
+}
+.hero-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center,rgba(0,0,0,0) 35%,rgba(0,0,0,.85) 75%);
+}
+
+/* ================= SECTIONS ================= */
+.section{margin-top:70px}
+.section h2{
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+  margin-bottom:16px;
+}
+.section p{color:#555;line-height:1.8}
+
+/* ================= CARDS ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.card{
+  background:#fff;
+  border-radius:var(--radius2);
+  padding:24px;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+}
+
+/* ================= PROJECTS ================= */
+.projects{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.project{
+  background:#fff;
+  padding:22px;
+  border-radius:var(--radius2);
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+}
+
+/* ================= FORM ================= */
+.form-wrap{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+}
+.panel{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:26px;
+  box-shadow:0 16px 40px rgba(0,0,0,.12);
+}
+form{margin-top:18px;display:grid;gap:14px}
+label{font-size:13px;font-weight:600}
+input{
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #ccc;
+}
+button{
+  padding:14px;
+  background:#121212;
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:70px;
+  padding-top:20px;
+  border-top:1px solid #ddd;
+  font-size:13px;
+  color:#666;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .hero-image{height:420px}
+  .grid{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+  .form-wrap{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<!-- NAV -->
+<div class="topbar">
+  <a class="brand" href="#">Ahmed Ali</a>
+  <div class="nav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="cta">Contact</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dark">
+    <h1>HEY, I’M AHMED ALI</h1>
+    <p>
+      Funnel & Web Designer | Automation & Workflow Expert.
+      I design high-converting funnels and powerful GHL automations
+      that help businesses scale with confidence.
+    </p>
+    <div class="hero-tags">
+      <span>GHL Funnels</span>
+      <span>Web Design</span>
+      <span>Automations</span>
+      <span>CRM</span>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="profile.png" alt="Ahmed Ali portrait">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>
+    I’m Ahmed Ali, a funnel & web designer specializing in GoHighLevel.
+    I focus on clean UI, smooth user journeys, and automation systems
+    that remove manual work and improve conversions.
+  </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <h2>What I Do</h2>
+  <div class="grid">
+    <div class="card"><h3>UX / Wireframing</h3><p>Clear structure for high-converting pages.</p></div>
+    <div class="card"><h3>Web Design</h3><p>Modern, responsive, premium-looking designs.</p></div>
+    <div class="card"><h3>Automations</h3><p>Smart workflows that save time and scale growth.</p></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project"><h3>Sales Funnel</h3><p>Lead capture + automated follow-ups.</p></div>
+    <div class="project"><h3>Business Website</h3><p>Responsive UI with conversion focus.</p></div>
+    <div class="project"><h3>CRM Automation</h3><p>Pipeline, tags, email & SMS logic.</p></div>
+    <div class="project"><h3>Lead Nurture</h3><p>Smart follow-ups improving close rate.</p></div>
+  </div>
+</section>
+
+<!-- FORM (SECOND LAST) -->
+<section id="contact" class="section">
+  <h2>Let’s Work Together</h2>
+  <div class="form-wrap">
+    <div class="panel">
+      <h3>Quick Contact</h3>
+      <form id="leadForm">
+        <label>Name</label>
+        <input type="text" required>
+        <label>Email</label>
+        <input type="email" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h3>Direct Contact</h3>
+      <p>Email: ahmedali@example.com</p>
+      <p>LinkedIn | Facebook | WhatsApp</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2025 Ahmed Ali</div>
+  <div>Designed & Developed by Ahmed Ali</div>
+</footer>
+
+</div>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  alert("Thanks! I’ll contact you shortly.");
+  e.target.reset();
+});
+</script>
+</body>
+</html>
